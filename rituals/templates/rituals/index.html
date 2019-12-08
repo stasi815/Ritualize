@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h3>Ritualize {% if ceremonies %}<small class="text-muted">({{ ceremonies|length }} Ceremony{{ ceremonies|length|pluralize:"s" }})</small>{% endif %}</h3>
+  <hr>
+  {% if pages %}
+    <div class="card-columns">
+      {% for ceremony in ceremonies %}
+        {% include "partials/card.html" %}
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="alert alert-primary" role="alert">No pages to display.</div>
+  {% endif %}
+{% endblock %}
