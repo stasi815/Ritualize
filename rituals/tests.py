@@ -15,7 +15,28 @@ class CeremonyTestCase(TestCase):
         user = User()
         user.save()
 
-        ceremony = Ceremony(title="concentration", content="test", author=user)
-        ceremony.save()
+        c = Ceremony(title="Test Concentration", content="test", author=user)
+        c.save()
 
-        self.assertEqual(ceremony.slug, "my-test-ceremony")
+        self.assertEqual(c.slug, "test-concentration")
+
+class CeremonyListViewTests(TestCase):
+    def test_multiple_pages(self):
+        """ Tests that we see multiple pages on landing page. """
+        user = User.objects.create()
+
+        Ceremony.objects.create(title="test ceremony", content="test", author=user)
+        Ceremony.objects.create(title="another test ceremony", content="test", author=user)
+
+        response = self.client.get('/')
+
+        self.assertEqual(response.status_code, 200)
+
+        responses = response.context['ceremonies']
+        self.assertEqual(len(responses), 2)
+
+        self.assertQuerysetEqual(
+            responses,
+            ['<Ceremony: test ceremony>', '<Ceremony: another test ceremony>'],
+            ordered=False
+        )

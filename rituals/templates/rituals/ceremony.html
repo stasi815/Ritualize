@@ -7,7 +7,9 @@
       <hr>
       <p>{{ ceremony.content|linebreaksbr }}</p>
       <hr>
-      <a href="{% url 'ceremony-list-page' %}">Back to List</a>
+      <a href="{% url 'ceremony-list-page' %}">Back to List</a><hr>
+      <a href= "{% url 'ceremony-update-page' ceremony.slug %}">Edit</a><hr>
+      <a href= "{% url "ceremony-delete" ceremony.slug %}">Delete</a>
     </div>
   </div>
 {% endblock %}

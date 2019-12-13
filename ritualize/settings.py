@@ -25,7 +25,7 @@ SECRET_KEY = '&ss9ui0_%q!yxjk+njm-wb^tz&w45m_ykvj4sww6_)4ao4x+ya'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', "ritualize-amg.herokuapp.com"]
 
 
 # Application definition
@@ -141,4 +141,4 @@ try:
 except ImportError:
     pass
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')

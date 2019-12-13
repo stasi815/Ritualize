@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="d-flex">
+    <div class="flex-fill">
+        <h2>Edit Ceremony Details</h2>
+        {% include 'partials/form.html' %}
+        <a href="{% url "ceremony-delete" ceremony.slug %}" class="btn btn-danger">Delete</a>
+    </div>
+
+</div>
+
+{% endblock content %}
