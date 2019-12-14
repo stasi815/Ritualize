@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h3>Ritualize {% if ceremonies %}<small class="text-muted">({{ ceremonies|length }} Ceremony{{ ceremonies|length|pluralize:"es" }})</small>{% endif %}</h3>
+  <h3>Ritualize {% if ceremonies %}<small class="text-muted">({{ ceremonies|length }} Ceremon{{ ceremonies|pluralize:"y,ies" }})</small>{% endif %}</h3>
   <hr>
   {% if ceremonies %}
     <div class="card-columns">
